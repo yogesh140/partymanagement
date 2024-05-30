@@ -1,0 +1,55 @@
+@if (!partyStore.loading()) {
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-white">
+    <thead>
+      <tr>
+        <th class="py-2 px-4 border-b-2 border-gray-300">Sr No</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">ID</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">Name</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">Company Name</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">Email</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">MoblieNo</th>
+        <th class="py-2 px-4 border-b-2 border-gray-300">Credit Limit</th>
+
+
+        <th class="py-2 px-4 border-b-2 border-gray-300">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="self-center">
+      <tr *ngFor="let party of partyStore.partyData(); let index = index">
+        <td class="py-2 px-4 border-b">{{ index + 1 }}</td>
+        <td class="py-2 px-4 border-b">{{ party.id }}</td>
+        <td class="py-2 px-4 border-b">{{ party.name }}</td>
+        <td class="py-2 px-4 border-b">{{ party.company_name }}</td>
+        <td class="py-2 px-4 border-b">{{ party.email }}</td>
+        <td class="py-2 px-4 border-b">{{ party.mobile_no }}</td>
+        <td class="py-2 px-4 border-b">{{ party.credit_limit }}</td>
+
+
+        <td class="py-2 px-4 border-b">
+          <button
+            class="bg-blue-500 text-white py-1 px-3 rounded"
+            (click)="redirectToEditPArtyForm(party.id)"
+          >
+            Edit
+          </button>
+
+          <button
+            (click)="deleteParty(party.id)"
+            class="bg-red-500 text-white py-1 px-3 rounded ml-2"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+} @else {
+<div class="flex justify-center items-center h-full">
+  <div
+    class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"
+  ></div>
+</div>
+}

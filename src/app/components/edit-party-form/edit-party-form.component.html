@@ -1,0 +1,231 @@
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-6 text-center">
+    Edit Party Management Form
+  </h2>
+  <form
+    [formGroup]="partyformUpdate"
+    (ngSubmit)="onSubmit()"
+    enctype="multipart/form-data"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Top Fields -->
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="name"
+          >Name</label
+        >
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="company_name"
+          >Company Name</label
+        >
+        <input
+          type="text"
+          id="company_name"
+          formControlName="company_name"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','company_name') &&
+          partyformUpdate.controls['company_name'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Company Name is required</span
+          >
+          }
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="mobile_no"
+          >Mobile No</label
+        >
+        <input
+          type="text"
+          id="mobile_no"
+          formControlName="mobile_no"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','mobile_no') &&
+          partyformUpdate.controls['mobile_no'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Mobile Number is required</span
+          >
+          }
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="telephone_no"
+          >Telephone No</label
+        >
+        <input
+          type="text"
+          id="telephone_no"
+          formControlName="telephone_no"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="whatsapp_no"
+          >Whatsapp No</label
+        >
+        <input
+          type="text"
+          id="whatsapp_no"
+          formControlName="whatsapp_no"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="email"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','email') &&
+          partyformUpdate.controls['email'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Email is required</span
+          >
+          }
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="remark"
+          >Remark</label
+        >
+        <input
+          type="text"
+          id="remark"
+          formControlName="remark"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="login_access"
+          >Login Access</label
+        >
+        <input
+          type="checkbox"
+          id="login_access"
+          formControlName="login_access"
+          class="w-4 h-4 text-blue-600"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','login_access') &&
+          partyformUpdate.controls['login_access'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Login Access is required</span
+          >
+          }
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="date_of_birth"
+          >Date of Birth</label
+        >
+        <input
+          type="date"
+          id="date_of_birth"
+          formControlName="date_of_birth"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="anniversary_date"
+          >Anniversary Date</label
+        >
+        <input
+          type="date"
+          id="anniversary_date"
+          formControlName="anniversary_date"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="gstin"
+          >GSTIN</label
+        >
+        <input
+          type="text"
+          id="gstin"
+          formControlName="gstin"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="pan_no"
+          >PAN No</label
+        >
+        <input
+          type="text"
+          id="pan_no"
+          formControlName="pan_no"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="apply_tds"
+          >Apply TDS</label
+        >
+        <input
+          type="checkbox"
+          id="apply_tds"
+          formControlName="apply_tds"
+          class="w-4 h-4 text-blue-600"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','apply_tds') &&
+          partyformUpdate.controls['apply_tds'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Apply Tds is required</span
+          >
+          }
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-bold mb-2" for="credit_limit"
+          >Credit Limit</label
+        >
+        <input
+          type="number"
+          id="credit_limit"
+          formControlName="credit_limit"
+          class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <div class="my-2 mx-2">
+          @if (partyformUpdate.hasError('required','credit_limit') &&
+          partyformUpdate.controls['credit_limit'].dirty) {
+          <span class="text-red-500 text-sm font-medium"
+            >*Credit Limit is required</span
+          >
+          }
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 text-center flex justify-center">
+      <button
+        type="submit"
+        [disabled]="!partyformUpdate.valid"
+        class="inline-block bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm mr-2"
+      >
+        Update
+      </button>
+      <button
+        type="reset"
+        class="inline-block bg-gray-300 text-gray-700 p-2 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

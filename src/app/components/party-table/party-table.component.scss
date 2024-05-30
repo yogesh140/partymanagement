@@ -1,0 +1,8 @@
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+  }
+  
+  .loader {
+    animation: spinner 0.6s linear infinite;
+    border-top-color: #3490dc; /* You can change this to your primary color */
+  }

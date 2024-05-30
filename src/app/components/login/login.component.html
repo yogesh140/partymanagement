@@ -1,0 +1,63 @@
+<div class="lg:w-3/12 mt-20 p-10 shadow-2xl mx-auto">
+  <h3 class="text-3xl text-center font-semibold py-5">Login</h3>
+
+  <form [formGroup]="loginform" class="">
+    <div class="flex flex-row mt-4 mb-1">
+      <div class="flex m-1">
+        <i class="fa fa-user m-1" aria-hidden="true"></i>
+      </div>
+      <input
+        name="username"
+        formControlName="username"
+        type="text"
+        class="p-2 border w-full text-sm font-medium border-gray-500 rounded"
+
+        placeholder="username"
+      />
+    </div>
+
+    <div class="my-2 mx-6">
+      @if (loginform.hasError('required','username') &&
+      loginform.controls['username'].dirty) {
+      <span class="text-red-500 text-sm font-medium">*username is required</span>
+      }
+    </div>
+
+    <div class="flex flex-row mt-4 mb-1">
+      <div class="flex m-1">
+        <i class="fa fa-unlock-alt m-1" aria-hidden="true"></i>
+      </div>
+      <input
+        formControlName="password"
+        type="text"
+        class="p-2 border w-full text-sm font-medium border-gray-500 rounded"
+        placeholder="Password"
+      />
+    </div>
+    <div class="my-2 mx-6">
+      @if (loginform.hasError('required','password') &&
+      loginform.controls['password'].dirty) {
+      <span class="text-red-500 text-sm font-medium"
+        >*Password is required</span
+      >
+      }
+    </div>
+    <div class="my-2 mx-6">
+      <button
+        [disabled]="loginform.invalid"
+        [class.disabled]="loginform.invalid"
+        (click)="login()"
+        class="bg-indigo-500 p-2 text-xm text-white rounded mt-3"
+      >
+        Login
+      </button>
+      <div class="flex justify-start mt-5">
+        <a
+          routerLink="/register"
+          class="text-indigo-600 ml-2 text-sm font-medium cursor-pointer"
+          >Create Account</a
+        >
+      </div>
+    </div>
+  </form>
+</div>
