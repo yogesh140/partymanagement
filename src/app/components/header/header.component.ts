@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +16,8 @@ export class HeaderComponent {
 
   router = inject(Router);
   isLoggedIn: boolean = false;
+  toastrService = inject(ToastrService);
+
 
   constructor() {}
 
@@ -24,7 +28,24 @@ export class HeaderComponent {
   }
 
   Logout() {
-    localStorage.removeItem('token');
-    this.authService.isLoggedIn$.next(false);
+    const tokenLocalStorage = localStorage.getItem('token');
+    const logoutdata = {
+      value: 'Token ' + tokenLocalStorage,
+      key: 'Authorization',
+    };
+
+    this.authService.logOutServices(logoutdata).subscribe({
+      next: (res) => {
+        if (res.status) {
+          this.toastrService.success(res.status, 'Success');
+          localStorage.removeItem('token');
+          this.authService.isLoggedIn$.next(false);
+          this.router.navigate(['login']);
+        }
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+    });
   }
 }
