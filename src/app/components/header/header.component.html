@@ -1,7 +1,5 @@
-<!-- <div class="fixed w-full mr-auto">  -->
 
 <header class="bg-white">
-  <!-- <nav aria-label="Top" class="mx-auto max-w-full px-2 sm:px-6 lg:px-8"> -->
   <nav class="mx-auto max-w-full px-3 sm:px-6 lg:px-8">
     <div class="border-b border-gray-200">
       <div class="flex h-16 items-center">
@@ -32,12 +30,6 @@
         <div class="ml-4 flex lg:ml-0">
           <a href="">
             <span class="sr-only">Your Company</span>
-            <!-- <img
-              class="h-20 w-auto"
-              src="assets/images/Logo.png"
-              alt="logo"
-              srcset=""
-            /> -->
           </a>
         </div>
 
@@ -46,16 +38,7 @@
           <!-- Flyout menus -->
           <div class="hidden lg:ml-8 lg:block lg:self-stretch">
             <div class="flex h-full space-x-8">
-              <!-- <a
-                href="home"
-                class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                >Home</a
-              > -->
-              <!-- <a
-                href="/products"
-                class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                >Stores</a
-              > -->
+              
             </div>
           </div>
           <div
@@ -63,7 +46,6 @@
           >
             <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
             <a
-              href="/login"
               (click)="Logout()"
               class="text-sm font-medium text-gray-700 hover:text-gray-800"
               >Logout</a
@@ -76,16 +58,11 @@
             class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6"
           >
             <a
-              href="/login"
+              routerLink="/login"
               class="text-sm font-medium text-gray-700 hover:text-gray-800"
               >Sign in</a
             >
             <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-            <a
-              href="/register"
-              class="text-sm font-medium text-gray-700 hover:text-gray-800"
-              >Create account</a
-            >
           </div>
           }
         </div>
