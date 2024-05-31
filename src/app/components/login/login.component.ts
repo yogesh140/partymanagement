@@ -39,15 +39,12 @@ export default class LoginComponent {
           'login successful!',
           'Success'
         );
-        // console.log('res', res.token);
-        // alert(res.message);
         localStorage.setItem('token', res.token);
         this.authService.isLoggedIn$.next(true);
         this.router.navigate(['party-list']);
         this.loginform.reset();
       },
       error: (err) => {
-        console.log(err);
         alert(err.msg);
       },
     });
