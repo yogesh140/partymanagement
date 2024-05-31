@@ -20,10 +20,12 @@ export default class LoginComponent {
   fb = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
-
-  constructor(private toastr: ToastrService) {}
-
+  toastrService = inject(ToastrService);
   loginform!: FormGroup;
+
+  constructor() {}
+
+ 
 
   ngOnInit(): void {
     this.loginform = this.fb.group({
