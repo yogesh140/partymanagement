@@ -31,21 +31,19 @@ export default class LoginComponent {
       password: ['', Validators.required],
     });
   }
+
+  
   login() {
     this.authService.loginServices(this.loginform?.value).subscribe({
       next: (res) => {
-
-        this.toastr.success(
-          'login successful!',
-          'Success'
-        );
+        this.toastrService.success('login successful!', 'Success');
         localStorage.setItem('token', res.token);
         this.authService.isLoggedIn$.next(true);
         this.router.navigate(['party-list']);
         this.loginform.reset();
       },
       error: (err) => {
-        alert(err.msg);
+        this.toastrService.error(err.error.msg);
       },
     });
   }
