@@ -16,6 +16,10 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrls}login/`, loginObj);
   }
 
+  logOutServices(logoutObj: any) {
+    return this.http.post<any>(`${this.apiUrls}logout/`, logoutObj);
+  }
+
   isLoggedIn() {
     return !!localStorage.getItem('token');
   }
